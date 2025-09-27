@@ -8,5 +8,17 @@ Portsync.sh is a file copying script written in bash that utilizes *rsync* to mi
 ### Applications
 When combined with *Cron Jobs*, PortSync.sh can schedule routine backups across drives. For example, syncing a local folder to a shared network drive.
 
+### Prerequisites 
+- Linux Operating System
+- Read/Write Permissions of desired folders
+#### Optional
+- Git installed
 ### Instructions
-Using a text editor of your choice, edit 
+Using a text editor of your choice, edit the SOURCE and DEST variables with your desired paths. Be sure to use the *full* files paths or the script will fail.
+
+Verify that the destination folder is integrated with Git if using the GitHub automatic backup feature. Otherwise, comment out the GitHub integration.
+
+To routinely schedule backups, run *crontab -e* to edit the Cron Jobs file. Then, add to the bottom of the file:
+    * * * * * */full/path/to/sync_script.sh
+
+(The asterisks will be the time to routinely run the script. Research *Cron Jobs* for more information )

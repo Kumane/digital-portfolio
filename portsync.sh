@@ -32,7 +32,7 @@ else
     fi
 fi
 
-##COMMENT OUT BELOW SECTION IF GITHUB INTEGRATION IS NOT DESIRED
+###COMMENT OUT BELOW SECTION IF GITHUB INTEGRATION IS NOT DESIRED
 # Change to destination directory for git operations
 cd "$DEST"
 
@@ -40,7 +40,7 @@ cd "$DEST"
 if [ ! -d ".git" ]; then
     echo "$(date): This folder is not a git repository yet"
     echo "$(date): To set up git, run these commands:"
-    echo "  cd /home/kumane/sambashare/Portfolio"
+    echo "  cd $DEST"
     echo "  git init"
     echo "  git remote add origin https://YOUR_TOKEN@github.com/username/repo.git"
     echo "  git add -A"
