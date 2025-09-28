@@ -170,24 +170,36 @@
 <body>
     <canvas id="canvas-bg"></canvas>
 
-    <a href="#" class="back-button">Back</a>
+    <a href="../index.html#projecttab" class="back-button">Back</a>
 
     <div class="container">
-        <h1 class="project-title">Neural Dreams</h1>
+        <h1 class="project-title">Proxmox Server</h1>
         
         <div class="project-image">
             <div class="image-placeholder">Project Image Placeholder</div>
         </div>
         
         <div class="project-content">
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+            <p> When upgrading my desktop computer to a new motherboard platform, I decided to reassemble my old parts into a dedicated learning platform.
+                My personal server is a headless, bare-metal, Proxmox Server. Proxmox is an open source Type 1 Hypervisor based on the GNU/Linux distribution Debian. It and all services hosted within it are accessed remotely through TailScale VPN.
+            </p>
+            <p>
+                The hardware specifications are:
+                <ul>MOTHERBOARD: ASUS PRIME B550 M-A </ul>
+                <ul>CPU: 8-Core Ryzen 7 3700x</ul>
+                <ul>GPU: NVIDIA RTX 2070 Super 8GB</ul>
+                <ul>MEMORY: 32GB DDR4 3200 MHz</ul>
+                <ul>PSU: THERMALTAKE 500W</ul>
+            </p>
+            <h2>Virtualization Overview</h2>
+            <h3>Virtual Machines</h3>
+            <ol>Ubuntu Server - Contains nested virtualized services via Docker</ol>
+            <ol>Windows Server 2025 - Active Directory Domain Server / DHCP Server for experimentation and learning</ol>
+            <ol>Windows 11 - Hosts joined to AD/DS</ol>
+            <h3>LXC Containers</h3>
+            <ol>Alpine Linux - Lightweight container configured with mapped Samba Network Drive</ol>
+            <ol>Pi-Hole - DNS Sinkhole for network level domain blocking</ol>
             
-            <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium.</p>
-            
-            <p>Totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt.</p>
-            
-            <p>Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam.</p>
-        </div>
     </div>
 
     <script>
