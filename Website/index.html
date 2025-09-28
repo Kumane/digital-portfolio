@@ -733,23 +733,7 @@
             canvas.style.transform = `translateY(${rate}px)`;
         });
 
-        // Add some random floating elements
-        function addAmbientElements() {
-            setInterval(() => {
-                if (Math.random() < 0.3) {
-                    createFloatingParticles({
-                        getBoundingClientRect: () => ({
-                            left: Math.random() * window.innerWidth,
-                            top: Math.random() * window.innerHeight,
-                            width: 100,
-                            height: 100
-                        })
-                    });
-                }
-            }, 3000);
-        }
-
-        addAmbientElements();
+        
     </script>
 </body>
 </html>
