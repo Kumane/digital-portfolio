@@ -77,17 +77,30 @@
             margin-top: 30px;
         }
 
+        /* Link Style */
+        .link {
+            text-decoration: none;
+            color: inherit;
+            display: block;
+        }
         /* Projects section */
         .projects {
             margin-top: 100px;
             padding-bottom: 100px;
         }
 
+        .projects h2 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+            font-weight: 300;
+            color: #ff4444;
+        }
+
         .project-item {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 25px 0;
+            padding: 25px 30px 25px 0;
             border-bottom: 1px solid rgba(255, 255, 255, 0.1);
             transition: all 0.3s ease;
             cursor: pointer;
@@ -99,6 +112,11 @@
             background: rgba(255, 68, 68, 0.05);
             transform: translateX(10px);
             border-bottom-color: #ff4444;
+        }
+
+        .project-item:hover .project-name,
+        .project-item:hover .project-details {
+        transform: translateX(10px);
         }
 
         .project-item:hover::before {
@@ -123,6 +141,7 @@
             letter-spacing: -0.01em;
         }
 
+        
         .project-details {
             text-align: right;
             opacity: 0.6;
@@ -246,7 +265,7 @@
     <div class="container">
         <header class="header">
             <div class="intro">
-                <h1>Kevin <span class="highlight">Gonzalez</span><br>Aspiring IT <span class="highlight">Professional</span></h1>
+                <h1>Kevin <span class="highlight">Gonzalez</span><br>IT <span class="highlight">Professional</span></h1>
                 <p>End Users are the backbones of a successful business.</p>                
                 <p>Technical support is what I live and breathe.</p>
                 <p class="mission">My mission is to bridge the gap between technological complexities and human understanding. I believe that every challenge—technical or interpersonal—is a welcome opportunity for growth.
@@ -256,22 +275,83 @@
         </header>
 
         <section class="projects">
-            <div class="project-item" data-project="neural-dreams">
-                <div class="project-name">ABC XYZ</div>
-                <div class="project-details">
-                    <div class="project-date">Aug.2025</div>
-                    <div class="project-role">Something & Stuff</div>
+            <h2>Projects</h2>
+            <a href="https://www.google.com" class="link">
+                <div class="project-item" data-project="project">
+                    <div class="project-name">Proxmox Server</div>
+                    <div class="project-details">
+                        <div class="project-date"></div>
+                        <div class="project-role"></div>
+                    </div>
                 </div>
-            </div>
+            </a>
 
-            <div class="project-item" data-project="quantum-ui">
-                <div class="project-name">123 ABC</div>
-                <div class="project-details">
-                    <div class="project-date">Jul.2025</div>
-                    <div class="project-role">Stuff Good</div>
+            <a href="https://www.google.com" class="link">
+                <div class="project-item" data-project="project">
+                    <div class="project-name">Ubuntu Server</div>
+                    <div class="project-details">
+                        <div class="project-date">Jul.2025</div>
+                        <div class="project-role">Stuff Good</div>
+                    </div>
                 </div>
-            </div>
+            </a>
+
+            <a href="https://www.google.com" class="link">
+                <div class="project-item" data-project="project">
+                    <div class="project-name">Folder Syncing Script</div>
+                    <div class="project-details">
+                        <div class="project-date">Jul.2025</div>
+                        <div class="project-role">Stuff Good</div>
+                    </div>
+                </div>
+            </a>
+
+            <a href="https://www.google.com" class="link">
+                <div class="project-item" data-project="project">
+                    <div class="project-name">Digital Portfolio</div>
+                    <div class="project-details">
+                        <div class="project-date">Jul.2025</div>
+                        <div class="project-role">Stuff Good</div>
+                    </div>
+                </div>
+            </a>
+
         </section>
+
+        <section class="projects">
+            <h2>Experience</h2>
+            <a href="https://www.google.com" class="link">
+                <div class="project-item" data-project="project">
+                    <div class="project-name">IT Coordinator</div>
+                    <div class="project-details">
+                        <div class="project-date">2025 - Present</div>
+                        <div class="project-role">Saint Dominic's Academy</div>
+                        <div class="project-role">Jersey City, NJ</div>
+                    </div>
+                </div>
+            </a>
+
+            <a href="https://www.google.com" class="link">
+                <div class="project-item" data-project="project">
+                    <div class="project-name">Technical Support Specialist</div>
+                    <div class="project-details">
+                        <div class="project-date">2022 - Present</div>
+                        <div class="project-role">Freelance</div>
+                        <div class="project-role">Local/Remote</div>
+                    </div>
+                </div>
+            </a>
+
+            <a href="https://www.google.com" class="link">
+                <div class="project-item" data-project="project">
+                    <div class="project-name">Assistant Cafeteria Manager</div>
+                    <div class="project-details">
+                        <div class="project-date">2025</div>
+                        <div class="project-role">Saint Dominic's Academy</div>
+                        <div class="project-role">Jersey City, NJ</div>
+                    </div>
+                </div>
+            </a>
 
         <section class="faq">
             <h2>Frequently Asked Questions</h2>
