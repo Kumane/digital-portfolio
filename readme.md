@@ -11,6 +11,7 @@ When combined with *Cron Jobs*, PortSync.sh can schedule routine backups across 
 ### Prerequisites 
 - Linux Operating System
 - Read/Write Permissions of desired folders
+- Rsync installed
 #### Optional
 - Git installed
 ### Instructions
