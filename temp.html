@@ -476,7 +476,7 @@
                 this.endNode = endNode;
                 this.trace = trace;
                 this.progress = 0;
-                this.speed = 0.004 + Math.random() * 0.006; // Reduced by half
+                this.speed = 0.008 + Math.random() * 0.012;
                 this.size = 2;
                 this.life = 1;
                 
@@ -532,7 +532,7 @@
             nodes.push(new CircuitNode());
         }
 
-        // Create circuit traces (connections) with high density
+        // Create circuit traces (connections) with minimal overlapping
         function generateTraces() {
             traces.length = 0; // Clear existing traces
             
@@ -542,18 +542,18 @@
                     const dx = node.x - other.x;
                     const dy = node.y - other.y;
                     const distance = Math.sqrt(dx * dx + dy * dy);
-                    return distance < 280 && distance > 60; // Even wider range for maximum density
+                    return distance < 180 && distance > 120;
                 });
 
-                // High connection count for dense circuitry
-                const maxConnections = Math.random() < 0.2 ? 3 : 4; // 80% chance of 4, 20% chance of 3
+                // Much more conservative connection count
+                const maxConnections = Math.random() < 0.6 ? 1 : 2;
                 const connectionCount = Math.min(maxConnections, nearbyNodes.length);
                 
-                // Sort by distance but add randomization for variety
+                // Sort by distance - prefer closest connections
                 nearbyNodes.sort((a, b) => {
                     const distA = Math.sqrt((node.x - a.x) ** 2 + (node.y - a.y) ** 2);
                     const distB = Math.sqrt((node.x - b.x) ** 2 + (node.y - b.y) ** 2);
-                    return distA - distB + (Math.random() - 0.5) * 40; // More randomization
+                    return distA - distB;
                 });
                 
                 for (let j = 0; j < connectionCount; j++) {
@@ -632,6 +632,9 @@
                 ctx.restore();
             });
 
+            // Only spawn data packets when user interacts
+            // Remove automatic packet spawning - packets now only created on user interaction
+
             // Update and draw data packets
             for (let i = dataPackets.length - 1; i >= 0; i--) {
                 const packet = dataPackets[i];
@@ -666,74 +669,20 @@
 
         animate();
 
-        // Input tracking and cooldown system
-        let lastMouseMoveTime = 0;
-        let lastKeyPressTime = 0;
-        let lastProjectHoverTime = 0;
-        const mouseCooldown = 5000; // 5 seconds
-        const keyCooldown = 3000; // 3 seconds
-        const projectHoverCooldown = 3000; // 3 seconds
-        
-        function sendPackets(count) {
-            if (traces.length > 0) {
-                for (let i = 0; i < count; i++) {
-                    const randomTrace = traces[Math.floor(Math.random() * traces.length)];
-                    dataPackets.push(new DataPacket(randomTrace.start, randomTrace.end, randomTrace));
-                }
-            }
-        }
-
-        // Mouse movement detection with cooldown
-        document.addEventListener('mousemove', (e) => {
-            const currentTime = Date.now();
-            if (currentTime - lastMouseMoveTime > mouseCooldown) {
-                lastMouseMoveTime = currentTime;
-                sendPackets(3);
-                
-                // Also trigger some nearby nodes
-                const mouseX = e.clientX;
-                const mouseY = e.clientY;
-                nodes.forEach(node => {
-                    const rect = canvas.getBoundingClientRect();
-                    const nodeScreenX = rect.left + node.x * (canvas.offsetWidth / canvas.width);
-                    const nodeScreenY = rect.top + node.y * (canvas.offsetHeight / canvas.height);
-                    const distance = Math.sqrt((mouseX - nodeScreenX) ** 2 + (mouseY - nodeScreenY) ** 2);
-                    
-                    if (distance < 150 && Math.random() < 0.3) {
-                        node.isActive = true;
-                        node.activityTimer = 0;
-                    }
-                });
-            }
-        });
-
-        // Keyboard input detection with cooldown
-        document.addEventListener('keydown', (e) => {
-            const currentTime = Date.now();
-            if (currentTime - lastKeyPressTime > keyCooldown) {
-                lastKeyPressTime = currentTime;
-                sendPackets(2);
-                
-                // Activate random nodes on keyboard input
-                const activeNodes = Math.floor(Math.random() * 3) + 2;
-                for (let i = 0; i < activeNodes; i++) {
-                    const randomNode = nodes[Math.floor(Math.random() * nodes.length)];
-                    randomNode.isActive = true;
-                    randomNode.activityTimer = 0;
-                }
-            }
-        });
-
         // Project item interactions
         const projectItems = document.querySelectorAll('.project-item');
         
         projectItems.forEach(item => {
             item.addEventListener('mouseenter', () => {
-                // Send data packets when hovering over projects (with cooldown)
-                const currentTime = Date.now();
-                if (currentTime - lastProjectHoverTime > projectHoverCooldown) {
-                    lastProjectHoverTime = currentTime;
-                    sendPackets(2);
+                // Create floating particles on hover
+                createFloatingParticles(item);
+                
+                // Send data packets when hovering over projects
+                if (traces.length > 0) {
+                    for (let i = 0; i < 2; i++) {
+                        const randomTrace = traces[Math.floor(Math.random() * traces.length)];
+                        dataPackets.push(new DataPacket(randomTrace.start, randomTrace.end, randomTrace));
+                    }
                 }
             });
             
@@ -745,9 +694,36 @@
                 }, 150);
                 
                 // Send more packets on click
-                sendPackets(3);
+                if (traces.length > 0) {
+                    for (let i = 0; i < 3; i++) {
+                        const randomTrace = traces[Math.floor(Math.random() * traces.length)];
+                        dataPackets.push(new DataPacket(randomTrace.start, randomTrace.end, randomTrace));
+                    }
+                }
             });
         });
+
+        function createFloatingParticles(element) {
+            const rect = element.getBoundingClientRect();
+            
+            for (let i = 0; i < 5; i++) {
+                const particle = document.createElement('div');
+                particle.className = 'particle';
+                
+                const size = Math.random() * 4 + 2;
+                particle.style.width = size + 'px';
+                particle.style.height = size + 'px';
+                particle.style.left = (rect.left + Math.random() * rect.width) + 'px';
+                particle.style.top = (rect.top + Math.random() * rect.height) + 'px';
+                particle.style.animationDelay = Math.random() * 2 + 's';
+                
+                document.body.appendChild(particle);
+                
+                setTimeout(() => {
+                    particle.remove();
+                }, 6000);
+            }
+        }
 
         // Smooth scroll for better UX
         document.addEventListener('scroll', () => {
@@ -757,6 +733,24 @@
             // Parallax effect on canvas
             canvas.style.transform = `translateY(${rate}px)`;
         });
+
+        // Add some random floating elements
+        function addAmbientElements() {
+            setInterval(() => {
+                if (Math.random() < 0.3) {
+                    createFloatingParticles({
+                        getBoundingClientRect: () => ({
+                            left: Math.random() * window.innerWidth,
+                            top: Math.random() * window.innerHeight,
+                            width: 100,
+                            height: 100
+                        })
+                    });
+                }
+            }, 3000);
+        }
+
+        addAmbientElements();
     </script>
 </body>
 </html>
