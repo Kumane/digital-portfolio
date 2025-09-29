@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kevin Gonzalez Portfolio - File Syncing Script</title>
+    <title>Kevin Gonzalez Portfolio - Experience</title>
     <style>
         * {
             margin: 0;
@@ -17,12 +17,6 @@
             color: #ffffff;
             overflow-x: hidden;
             line-height: 1.6;
-        }
-
-        a {
-            text-decoration: none;
-            color:red;
-
         }
 
         .container {
@@ -89,15 +83,7 @@
                 rgba(255, 136, 68, 0.05) 50%,
                 rgba(255, 68, 68, 0.1) 100%);
         }
-        .project-image img {
-            width: 100%;
-            height: 100%;
-            object-fit: contain;
-            object-position: center;
-            border-radius: 10px;
-            position: relative;
-            z-index: 2;
-        }
+
         .image-placeholder {
             font-size: 1.2rem;
             opacity: 0.6;
@@ -152,15 +138,7 @@
                 height: 250px;
                 margin-bottom: 40px;
             }
-            .project-image img {
-                width: 100%;
-                height: 100%;
-                object-fit: cover;
-                object-position: center;
-                border-radius: 10px;
-                position: relative;
-                z-index: 2;
-            }
+
             .project-content {
                 font-size: 1rem;
             }
@@ -192,23 +170,18 @@
 <body>
     <canvas id="canvas-bg"></canvas>
 
-    <a href="../index.html#projecttab" class="back-button">Back</a>
+    <a href="../index.html#exp" class="back-button">Back</a>
 
     <div class="container">
-        <h1 class="project-title">File Syncing Script</h1>
+        <h1 class="project-title">Ubuntu Server</h1>
         
         <div class="project-image">
-            <img src="../media/portsync.png">
+            <div class="image-placeholder">Project Image Placeholder</div>
         </div>
         
         <div class="project-content">
-            <p>I created a bash script to automate backups locally, and remotely on <a href="https://www.github.com/Kumane/digital-portfolio" target="_blank">Github.</a> <br> It is perfect for small projects such as this website.</br></p>
-            
-            <p>I wanted a way to routinely backup game data for my self-hosted Minecraft server, and so I automated this script using Cron jobs. By using Rsync, the script detects changes between directories and only copies or deletes what is neccessary. </p>
-            
-            <p>Cron scheduling allows automative flexibility in a way that can prioritize the needs of the user. If high availability is needed, the script can run more frequently. If read/write totals are a concern, the script can run less frequently to save disk health.</p>
-            
-            <p>GitHub integration can be commented out for a simpler backup solution. By setting the destination drive to a network drive path, the script allows you to very quickly transfer files across your local network. Rsync natively supports SSH, allowing you to automate SSH backups to completely remote locations as well.   </p>
+            <p></p>
+            <h2></h2>            
         </div>
     </div>
 

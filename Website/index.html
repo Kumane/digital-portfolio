@@ -219,6 +219,21 @@
             opacity: 0.6;
         }
 
+        .contact, a{
+            text-decoration: none;
+            color:red;
+        }
+
+        .contact a {
+            border-bottom: 1px solid red;
+        }
+
+        .contact a:hover {
+            border-bottom-color:rgba(255, 68, 68, 0.3);
+            transition: 0.3s ease;
+            
+        }
+
         /* Responsive */
         @media (max-width: 768px) {
             .intro h1 {
@@ -290,8 +305,8 @@
                 <div class="project-item" data-project="project">
                     <div class="project-name">Ubuntu Server</div>
                     <div class="project-details">
-                        <div class="project-date">Jul.2025</div>
-                        <div class="project-role">Stuff Good</div>
+                        <div class="project-date"></div>
+                        <div class="project-role"></div>
                     </div>
                 </div>
             </a>
@@ -300,8 +315,8 @@
                 <div class="project-item" data-project="project">
                     <div class="project-name">Folder Syncing Script</div>
                     <div class="project-details">
-                        <div class="project-date">Jul.2025</div>
-                        <div class="project-role">Stuff Good</div>
+                        <div class="project-date"></div>
+                        <div class="project-role"></div>
                     </div>
                 </div>
             </a>
@@ -310,28 +325,28 @@
                 <div class="project-item" data-project="project">
                     <div class="project-name">Digital Portfolio</div>
                     <div class="project-details">
-                        <div class="project-date">Jul.2025</div>
-                        <div class="project-role">Stuff Good</div>
+                        <div class="project-date"></div>
+                        <div class="project-role"></div>
                     </div>
                 </div>
             </a>
 
         </section>
 
-        <section class="projects">
+        <section class="projects" id="exp">
             <h2>Experience</h2>
-            <a href="https://www.google.com" class="link">
+            <a href="experience/ITCoord.html" class="link">
                 <div class="project-item" data-project="project">
                     <div class="project-name">IT Coordinator</div>
                     <div class="project-details">
-                        <div class="project-date">2025 - Present</div>
+                        <div class="project-date">March 2025 - Present</div>
                         <div class="project-role">Saint Dominic's Academy</div>
                         <div class="project-role">Jersey City, NJ</div>
                     </div>
                 </div>
             </a>
 
-            <a href="https://www.google.com" class="link">
+            <a href="experience/Free.html" class="link">
                 <div class="project-item" data-project="project">
                     <div class="project-name">Technical Support Specialist</div>
                     <div class="project-details">
@@ -342,7 +357,7 @@
                 </div>
             </a>
 
-            <a href="https://www.google.com" class="link">
+            <a href="experience/Cafe.html" class="link">
                 <div class="project-item" data-project="project">
                     <div class="project-name">Assistant Cafeteria Manager</div>
                     <div class="project-details">
@@ -358,33 +373,47 @@
 
             <div class="faq-item">
                 <div class="faq-question">How important is continuing education to you?</div>
-                <div class="faq-answer">Complacency is the precursor to stagnation. I am a firm believer in endless personal growth. I am currently studying for the CompTIA A+ and Network+ Certifications, with a long term goal of obtaining CompTIA Security+, Linux+, Cisco CCNA, and Red Hat RHCSA. </div>
+                <div class="faq-answer">
+                Complacency is the precursor to stagnation.
+                I am a firm believer in endless personal growth. 
+                I am currently studying for the CompTIA A+ and Network+ Certifications, with a long term goal of obtaining CompTIA Security+, Linux+, Cisco CCNA, and Red Hat RHCSA. </div>
             </div>
 
             <div class="faq-item">
                 <div class="faq-question">What are your career goals?</div>
-                <div class="faq-answer">To join a company that values loyalty and growth. Help Desk or Desktop Support are great entry level roles I am currently seeking, but my absolute goals are to learn as much as possible and become a Systems Administrator or Network Engineer.</div>
+                <div class="faq-answer">
+                To join a company that values loyalty and growth. 
+                Help Desk or Desktop Support are great entry level roles I am currently seeking, but my absolute goals are to learn as much as possible and become a Systems Administrator or Network Engineer.</div>
             </div>
 
             <div class="faq-item">
-                <div class="faq-question">How do you do the thing?</div>
-                <div class="faq-answer">Nonsensical answers <a href="https://google.com" target="_blank">Link to something</a> something cool.</div>
+                <div class="faq-question">What is your stance on generative AI?</div>
+                <div class="faq-answer">
+                Generative AI is in invaluable tool that functions best as an "auxillary brain". 
+                It is best used in minor roles to handle menial tasks such as summarizing or scheduling, and one must exercise caution when using it to perform mission critical tasks that parse private information. <br><br>
+                The great power of LLMs cannot be overstated, but that power requires great responsibility. It is of utmost importance that the output of AI is heavily scrutinized. In its current state, generative AI is prone to highly destructive hallucinations and users should be careful to cross-reference outputs.</div>
             </div>
 
             <div class="faq-item">
-                <div class="faq-question">How do you do the thing?</div>
-                <div class="faq-answer">Nonsensical answers <a href="https://google.com" target="_blank">Link to something</a> something cool.</div>
+                <div class="faq-question">Why is Information Technology your area of interest?</div>
+                <div class="faq-answer">I was born with a love for technology. I have always loved to tinker, prod, and optimize various devices and functions. I grew up modding video game consoles and repairing family devices. I have extensive experience in the hospitality industry, where I have treated each customer with kindness and humanity. Information Technology is how fulfill my social needs and voracious appetite for technical knowledge. Put simply, I love tech and I love helping people with their tech.</div>
             </div>
 
             <div class="faq-item">
-                <div class="faq-question">How do you do the thing?</div>
-                <div class="faq-answer">Nonsensical answers <a href="https://google.com" target="_blank">Link to something</a> something cool.</div>
+                <div class="faq-question">Do you have any special interests or hobbies?</div>
+                <div class="faq-answer">Technology is the obvious answer here but I also enjoy music, books, and nature.<br></br>
+                    <ol>Technology: PC Building, Self-Hosted Applications, Distro Hopping, RPG/Fantasy Games</ol>
+                    <ol>Music: Classic Heavy Metal, Drum and Bass, Jungle, Breakcore, Dungeon Synth</ol>
+                    <ol>Books: Science Fiction and Fantasy (Lovecraft, Poe, P.K.D)</ol>
+                    <ol>Nature: Hiking, Fishing, Recycling</ol>
+                    <ol>I also love fashion!</ol>
             </div>
         </section>
     </div>
 
     <footer class="footer">
-        <p>&copy; 2025 Something witty.</p>
+        <p>&copy; 2025 Kevin Gonzalez </p>
+        <p class="contact"><a href="mailto:Kevin.Gonzalez.Infotech@Gmail.com">Contact</a>: Kevin.Gonzalez.InfoTech@Gmail.com</p>
     </footer>
 
     <script>
